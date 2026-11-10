@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Edward ♡</title>
+<style>
+  :root { --navy:#101a32; --blue:#1d2c4d; --cream:#f5f0e8; --silver:#cbd3e2; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--cream);
+    font-family: Georgia, 'Times New Roman', serif;
+    background: radial-gradient(circle at 50% 20%, #34466d 0, #192744 34%, #0b1223 78%);
+    overflow-x:hidden;
+  }
+  .stars, .stars:before, .stars:after {
+    position:fixed; inset:0; pointer-events:none; content:"";
+    background-image:radial-gradient(2px 2px at 20px 30px,#fff 98%,transparent),
+      radial-gradient(1px 1px at 90px 120px,#dce7ff 98%,transparent),
+      radial-gradient(1.5px 1.5px at 170px 70px,#fff 98%,transparent),
+      radial-gradient(1px 1px at 250px 180px,#dce7ff 98%,transparent);
+    background-size:290px 230px; opacity:.45; animation:twinkle 5s ease-in-out infinite alternate;
+  }
+  .stars:before { transform:translate(90px,70px); opacity:.45; }
+  .stars:after { transform:translate(170px,130px); opacity:.3; }
+  @keyframes twinkle { from{opacity:.2} to{opacity:.65} }
+  main { width:min(760px, 92%); margin:auto; padding:54px 0 70px; position:relative; }
+  .eyebrow { text-transform:uppercase; letter-spacing:4px; color:var(--silver); font:11px Arial,sans-serif; }
+  section {
+    text-align:center; padding:42px 24px; margin:18px 0;
+    border:1px solid #cbd3e233; border-radius:24px;
+    background:linear-gradient(145deg,#ffffff0d,#ffffff04);
+    box-shadow:0 18px 55px #0003; backdrop-filter:blur(8px);
+  }
+  h1 { font-size:clamp(36px,8vw,66px); line-height:1.08; margin:18px 0; font-weight:normal; }
+  h2 { font-size:clamp(25px,5vw,36px); font-weight:normal; margin:0 0 18px; }
+  p { color:#e1e6f0; line-height:1.8; font-size:16px; }
+  .sub { color:#c5cede; font:13px Arial,sans-serif; letter-spacing:1px; }
+  button {
+    border:1px solid #dce5f4aa; border-radius:999px; color:#101a32;
+    background:linear-gradient(135deg,#f5f0e8,#cbd3e2); padding:14px 25px;
+    font: bold 12px Arial,sans-serif; letter-spacing:1.5px; cursor:pointer;
+    margin-top:18px; transition:.25s;
+  }
+  button:hover { transform:translateY(-3px); box-shadow:0 8px 25px #cbd3e244; }
+  #letter { display:none; animation:rise .8s ease both; }
+  @keyframes rise { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+  .divider { width:55px; height:1px; background:#cbd3e2aa; margin:24px auto; }
+  .photo-box {
+    min-height:160px; border:1px dashed #cbd3e277; border-radius:16px;
+    display:grid; place-items:center; padding:20px; color:#c5cede;
+    font:13px Arial,sans-serif; overflow:hidden;
+  }
+  .photo-box img { max-width:100%; max-height:320px; border-radius:12px; }
+  input { display:block; margin:15px auto 0; max-width:100%; color:#dfe6f4; font:12px Arial,sans-serif; }
+  .signature { font-style:italic; color:#fff; font-size:20px; margin-top:28px; }
+  footer { text-align:center; color:#aab6cc; font:11px Arial,sans-serif; letter-spacing:2px; padding-top:18px; }
+  .hidden { display:none; }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<main>
+  <section id="intro">
+    <div class="eyebrow">a little something for you</div>
+    <h1>haii,<br>happy birthday<br>abang!</h1>
+    <p class="sub">a tiny corner of the internet, made just for Edward ♡</p>
+    <button onclick="openGift()">OPEN YOUR GIFT ✦</button>
+  </section>
+
+  <div id="letter">
+    <section>
+      <div class="eyebrow">today is all about you</div>
+      <h2>Happy Birthday, Edward ♡</h2>
+      <div class="divider"></div>
+      <p>Selamat ulang tahun, abang! Semoga di umur yang baru ini, abang selalu diberi kesehatan, kebahagiaan, dan banyak hal baik.</p>
+      <p>Semoga semua yang sedang abang usahakan bisa berjalan lancar, satu per satu keinginan abang bisa tercapai, dan hari-hari abang ke depannya dipenuhi alasan untuk tersenyum.</p>
+      <p>Terima kasih sudah menjadi seseorang yang berarti. Jangan lupa istirahat, jaga diri baik-baik, dan tetap jadi Edward yang aku kenal.</p>
+      <p class="signature">with love, for abang ♡</p>
+    </section>
+
+    <section>
+      <div class="eyebrow">little memories</div>
+      <h2>Our favorite moments</h2>
+      <p class="sub">Kamu bisa tambahin foto kalian di sini.</p>
+      <div class="photo-box" id="photoBox">Your photo goes here ♡</div>
+      <input type="file" accept="image/*" onchange="showPhoto(event)">
+    </section>
+
+    <section>
+      <div class="eyebrow">one last thing</div>
+      <h2>Make a wish ✨</h2>
+      <p>Semoga tahun ini lebih banyak cerita baik, kesempatan baru, dan momen yang bikin abang bahagia. Enjoy your day, birthday boy!</p>
+      <div class="divider"></div>
+      <p class="sub">THIS LITTLE WEBSITE WAS MADE JUST FOR YOU</p>
+      <button onclick="celebrate()">ONE MORE SURPRISE ♡</button>
+      <p id="surprise" class="hidden">You deserve all the good things coming your way. Happy birthday, Abang! 🎂</p>
+    </section>
+  </div>
+  <footer>MADE WITH ♡ FOR EDWARD</footer>
+</main>
+<script>
+function openGift() {
+  document.getElementById('letter').style.display = 'block';
+  document.getElementById('intro').style.display = 'none';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function showPhoto(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const img = document.createElement('img');
+  img.alt = 'A memory';
+  img.src = URL.createObjectURL(file);
+  const box = document.getElementById('photoBox');
+  box.innerHTML = '';
+  box.appendChild(img);
+}
+function celebrate() {
+  const msg = document.getElementById('surprise');
+  msg.classList.remove('hidden');
+  msg.style.animation = 'rise .8s ease both';
+}
+</script>
+</body>
+</html>
